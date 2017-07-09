@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://java.sun.com/jsp/jstl/core">
+    <ui:composition template="/template.xhtml">
+        <ui:define name="centro">
+            <h:form>
+                <h:messages layout="table" class="erro"/>
+                <h:inputText value="#{controllerCliente.cliente.nome}" 
+                             required="true" 
+                             requiredMessage="É preciso informar seu nome!"
+                             id="nome"/>
+                <!--<h:message for="nome" class="erro" />-->
+                <h:inputText value="#{controllerCliente.cliente.cpf}" 
+                             converter="converter.CpfConverter" 
+                             validator="validador.CPFValidador"
+                             maxlength="11" 
+                             id="cpf"/>
+                <!--<h:message for="cpf" class="erro" />-->
+                <h:commandButton value="salvar" 
+                                 action="#{controllerCliente.salvarCliente()}"
+                                 rendered="#{not controllerCliente.editando}"/>
+                <h:commandButton value="atualizar" 
+                                 action="#{controllerCliente.atualizar()}" 
+                                 rendered="#{controllerCliente.editando}"/>
+
+                <h:dataTable var="cliente" value="#{controllerCliente.todosOsClientes}">
+                    <h:column>
+                        <h:outputText value="#{cliente.id}"/>
+                    </h:column>
+                    <h:column>
+                        <h:outputText value="#{cliente.nome}"/>
+                    </h:column>
+                    <h:column>
+                        <h:outputText value="#{cliente.cpf.formatado()}"/>
+                    </h:column>
+                    <h:column>
+                        <h:commandButton value="remover" 
+                                         action="#{controllerCliente.removerCliente(cliente)}" />
+                    </h:column>
+                    <h:column>
+                        <h:commandButton value="editar" 
+                                         action="#{controllerCliente.editarCliente(cliente)}" />
+                    </h:column>
+                </h:dataTable>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+</html>
