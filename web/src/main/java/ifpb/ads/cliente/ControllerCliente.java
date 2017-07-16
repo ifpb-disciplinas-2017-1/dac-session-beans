@@ -2,7 +2,9 @@ package ifpb.ads.cliente;
 
 import java.io.Serializable;
 import java.util.List;
+import javax.ejb.EJB;
 import javax.enterprise.context.SessionScoped;
+import javax.inject.Inject;
 import javax.inject.Named;
 
 /**
@@ -15,7 +17,9 @@ import javax.inject.Named;
 public class ControllerCliente implements Serializable { //controllerCliente
 
     private Cliente cliente = new Cliente();
-    private ClienteService service = new ClienteService();
+//    @EJB
+    @Inject
+    private ClienteService service ;// new ClienteService();
 
     private boolean editando = false;
 

@@ -13,7 +13,7 @@ import java.util.List;
  * @mail ricardo.job@ifpb.edu.br
  * @since 07/06/2017, 16:53:39
  */
-public class Cliente implements Serializable{
+public class Cliente implements Serializable {
 
     private String nome;
     private CPF cpf = new CPFBuilder().createCPF();
@@ -23,6 +23,12 @@ public class Cliente implements Serializable{
 
     public Cliente(String nome) {
         this.nome = nome;
+    }
+
+    public Cliente(String nome, int id, CPF cpf) {
+        this.nome = nome;
+        this.id = id;
+        this.cpf = cpf;
     }
 
     public Cliente() {
@@ -59,5 +65,5 @@ public class Cliente implements Serializable{
     public void setNascimento(LocalDate nascimento) {
         this.nascimento = nascimento;
     }
-    
+
 }

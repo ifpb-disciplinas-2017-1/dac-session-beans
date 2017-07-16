@@ -1,19 +1,23 @@
 package ifpb.ads.cliente;
 
-import ifpb.ads.infra.ClientesEmMemoria;
 import java.util.List;
+import javax.ejb.EJB;
+import javax.ejb.Stateless;
 
 /**
  * @author Ricardo Job
  * @mail ricardo.job@ifpb.edu.br
  * @since 07/06/2017, 16:57:08
  */
+@Stateless
+// Local View
 public class ClienteService {
 
-    private final Clientes clientes = new ClientesEmMemoria();
-//    private Clientes clientes = new ClientesJDBC();
+    @EJB
+    private Clientes clientes;// = new ClientesJDBC();
 
     public void salvar(Cliente cliente) {
+        
         this.clientes.salvar(cliente);
     }
 

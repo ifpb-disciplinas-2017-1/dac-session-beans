@@ -2,3 +2,7 @@
 /target
 nb-configuration.xml
 faces-config.NavData
+/core/target/
+/shared/target/
+/jse/target/
+/web/target/
