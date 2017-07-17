@@ -37,6 +37,7 @@ public class ListarClientes extends HttpServlet {
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Todos os Clientes</h1>");
+            out.println("</ br> </ br>");
             listarClientes(out);
             out.println("</body>");
             out.println("</html>");

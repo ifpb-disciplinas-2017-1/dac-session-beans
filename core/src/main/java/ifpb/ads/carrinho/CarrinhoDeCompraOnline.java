@@ -14,6 +14,8 @@ import javax.ejb.Stateful;
  */
 @Stateful
 @Remote(Carrinho.class)
+//TODO: usar!
+//@javax.ejb.AccessTimeout(unit = TimeUnit.MICROSECONDS,value = 14)
 public class CarrinhoDeCompraOnline implements Carrinho {
 
     private List<String> produtos = new ArrayList<>();

@@ -1,6 +1,6 @@
 package ifpb.ads.jse;
 
-import ifpb.ads.carrinho.Carrinho;
+import ifpb.ads.chat.Chat;
 
 /**
  * @author Ricardo Job
@@ -11,15 +11,27 @@ public class Principal {
 
     public static void main(String[] args) {
 //          Portable JNDI names for EJB CarrinhoDeCompraOnline: [java:global/core-1.0-SNAPSHOT/CarrinhoDeCompraOnline, java:global/core-1.0-SNAPSHOT/CarrinhoDeCompraOnline!ifpb.ads.carrinho.Carrinho]
-        Carrinho carrinho = new ServiceLocator()
-                .lookup("java:global/core/CarrinhoDeCompraOnline");
+//        Carrinho carrinho = new ServiceLocator()
+//                .lookup("java:global/core/CarrinhoDeCompraOnline");
+//
+//        carrinho.adicionarProduto("TV");
+//        carrinho.adicionarProduto("PC");
+//        carrinho.adicionarProduto("Lapis");
+//
+//        carrinho.removerProduto("TV");
+//
+//        carrinho.finalizarCarrinho();
 
-        carrinho.adicionarProduto("TV");
-        carrinho.adicionarProduto("PC");
-        carrinho.adicionarProduto("Lapis");
+//  Portable JNDI names for EJB SalaDeBatePapo: [java:global/core/SalaDeBatePapo, java:global/core/SalaDeBatePapo!ifpb.ads.chat.Chat]|#]
+        Chat chat = new ServiceLocator()
+                .lookup("java:global/core/SalaDeBatePapo");
 
-        carrinho.removerProduto("TV");
+        chat.addMensagem("oi");
+        chat.addMensagem("oi");
+        chat.addMensagem("oi");
+        chat.addMensagem("não sou um robô!");
 
-        carrinho.finalizarCarrinho();
+        chat.historico().forEach(System.out::println);
+
     }
 }

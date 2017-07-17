@@ -35,7 +35,7 @@
     </dependencies>
 
     <build>
-        <finalName>dac-session-web</finalName>
+        <finalName>dac-session</finalName>
     </build>
 
 </project>
